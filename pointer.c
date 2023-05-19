@@ -106,13 +106,14 @@ INTEGER CODING RULES:
  *   Binary integer operators: &, &&, |, ||, <, >, <<, >>, ==, !=, ^, /, %
  *   Unary integer operators: ~, -
  */
-int intSize() {
+int intSize()
+{
   int intArray[10];
   int *intPtr1;
   int *intPtr2;
   // Write code to compute size of an integer.
 
-  return 2;
+  return sizeof(int);
 }
 
 /*
@@ -129,13 +130,14 @@ int intSize() {
  *   Binary integer operators: &, &&, |, ||, <, >, <<, >>, ==, !=, ^, /, %
  *   Unary integer operators: ~, -
  */
-int doubleSize() {
+int doubleSize()
+{
   double doubArray[10];
   double *doubPtr1;
   double *doubPtr2;
   // Write code to compute size of a double.
 
-  return 2;
+  return sizeof(double);
 }
 
 /*
@@ -152,13 +154,15 @@ int doubleSize() {
  *   Binary integer operators: &, &&, |, ||, <, >, <<, >>, ==, !=, ^, /, %
  *   Unary integer operators: ~, -
  */
-int pointerSize() {
+int pointerSize()
+{
   double *ptrArray[10];
   double **ptrPtr1;
   double **ptrPtr2;
   // Write code to compute size of a pointer.
 
-  return 2;
+  double *ptr;
+  return sizeof(ptr);
 }
 
 /*
@@ -176,8 +180,12 @@ int pointerSize() {
  *   Binary integer operators: &, &&, |, ||, <, >, <<, >>, ==, !=, ^, /, %
  *   Unary integer operators: ~, -
  */
-void swapInts(int *ptr1, int *ptr2) {
+void swapInts(int *ptr1, int *ptr2)
+{
   // Your code here
+  int tmp = *ptr1;
+  *ptr1 = *ptr2;
+  *ptr2 = tmp;
 }
 
 /*
@@ -195,7 +203,8 @@ void swapInts(int *ptr1, int *ptr2) {
  *   Binary integer operators: &, &&, |, ||, <, >, !=, /, %
  *   Unary integer operators: -
  */
-int changeValue() {
+int changeValue()
+{
   int intArray[10];
   int *intPtr1 = intArray;
   // Remember not to use constants greater than 255.
@@ -221,7 +230,8 @@ int changeValue() {
  *   Binary integer operators: &, &&, |, ||, <, >, !=, /, %
  *   Unary integer operators: -
  */
-int withinSameBlock(int *ptr1, int *ptr2) {
+int withinSameBlock(int *ptr1, int *ptr2)
+{
   // Your code here
   return 2;
 }
@@ -245,7 +255,8 @@ int withinSameBlock(int *ptr1, int *ptr2) {
  *   Binary integer operators: &, &&, |, ||, <, >, !=, /, %
  *   Unary integer operators: -
  */
-int withinArray(int *intArray, int size, int *ptr) {
+int withinArray(int *intArray, int size, int *ptr)
+{
   // Your code here
   return 2;
 }
@@ -267,7 +278,8 @@ int withinArray(int *intArray, int size, int *ptr) {
  *   Binary integer operators: &, &&, |, ||, <<, >>, ^, /, %
  *   Unary integer operators: ~, -
  */
-int stringLength(char *s) {
+int stringLength(char *s)
+{
   // Your code here
   return 2;
 }
@@ -295,7 +307,8 @@ int stringLength(char *s) {
  *   Binary integer operators: &, &&, |, ||, <, >, <<, >>, ==, !=, ^, /, %
  *   Unary integer operators: ~, -
  */
-int endianExperiment(int *ptr) {
+int endianExperiment(int *ptr)
+{
   char *bytePtr;
   // Your code here
   return *ptr;
@@ -355,7 +368,8 @@ of bounds!
 /**
  * Returns the index of the smallest element in int array arr with length len.
  */
-int smallest_idx(int *arr, int len) {
+int smallest_idx(int *arr, int len)
+{
   int i;
   int smallest_i = 0;
   int smallest = arr[0];
@@ -366,9 +380,11 @@ int smallest_idx(int *arr, int len) {
 }
 
 // This function will work, if you implement smallest_idx and swapInts.
-void selectionSort(int *arr, int len) {
+void selectionSort(int *arr, int len)
+{
   int i, swap_idx;
-  for (i = 0; i < len; i++) {
+  for (i = 0; i < len; i++)
+  {
     swap_idx = i + smallest_idx(arr + i, len - i);
     swapInts(arr + i, arr + swap_idx);
   }
